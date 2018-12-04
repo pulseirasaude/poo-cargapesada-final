@@ -342,13 +342,12 @@ public class CadastroServico extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(16, 16, 16)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(119, 119, 119)
-                                .addComponent(jLabel1))))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(121, 121, 121)
+                            .addComponent(nomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(119, 119, 119)
+                            .addComponent(jLabel1)))
                     .addContainerGap(150, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -399,8 +398,8 @@ public class CadastroServico extends javax.swing.JFrame {
                     .addComponent(jLabel27)
                     .addComponent(dataFim, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(distancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -533,14 +532,12 @@ public class CadastroServico extends javax.swing.JFrame {
         serv.setValorContrato(Float.parseFloat(valorContrato.getText()));
         
         ServicoBD servBD = new ServicoBD();
-        servBD.insert(serv);
-        
-        
-        
-        
-        
-        
-        
+        try {
+            servBD.insert(serv);
+        } catch (SQLException ex) {
+            Logger.getLogger(CadastroServico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+               
         
         // TODO add your handling code here:
         
@@ -567,7 +564,7 @@ public class CadastroServico extends javax.swing.JFrame {
 
     private void EnderecoDestinoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EnderecoDestinoMouseClicked
         // TODO add your handling code here:
-        
+        endereco2.setVisible(true);
         
     }//GEN-LAST:event_EnderecoDestinoMouseClicked
 

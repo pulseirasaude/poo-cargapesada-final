@@ -31,14 +31,14 @@ public class ServicoBD implements InterfaceBD{
 
             Servico servico = new Servico();
             servico.setIdServico(rs.getInt("ID"));
-            servico.setStatus(rs.getNString("STATUS"));
+            servico.setStatus(rs.getString("STATUS"));
             servico.setValorContrato(rs.getFloat("VALOR_CONTRATO"));
-            servico.setDataInicio(rs.getNString("DATA_INICIO"));
-            servico.setDataFim(rs.getNString("DATA_FIM"));
-            servico.setDistancia(rs.getNString("DISTANCIA"));
+            servico.setDataInicio(rs.getString("DATA_INICIO"));
+            servico.setDataFim(rs.getString("DATA_FIM"));
+            servico.setDistancia(rs.getString("DISTANCIA"));
             servico.setQuantidade(rs.getInt("QUANTIDADE"));
-            servico.setVolume(rs.getNString("VOLUME"));
-            servico.setTipo(rs.getNString("TIPO"));
+            servico.setVolume(rs.getString("VOLUME"));
+            servico.setTipo(rs.getString("TIPO"));
             servico.setPeso(rs.getFloat("PESO"));
             servico.setIdCliente(rs.getInt("ID_CLIENTE"));
             servico.setIdFuncionario(rs.getInt(rs.getInt("ID_FUNCIONARIO")));
@@ -66,14 +66,22 @@ public class ServicoBD implements InterfaceBD{
         ResultSet rs;
         stmt = c.createStatement();
         rs = stmt.executeQuery("INSERT INTO SERVICO(STATUS, VALOR_CONTRATO, DATA_INICIO, DATA_FIM, "
-                + "ID_CLIENTE, ID_FUNCIONARIO, ID_VEICULO) values("
+                + "TIPO, PESO, VOLUME, QUANTIDADE, DISTANCIA, ID_CLIENTE, ID_FUNCIONARIO, ID_VEICULO) values("
                 +"'"+ novo.getStatus()+
                 "',"+ novo.getValorContrato()+ 
                 ",'"+ novo.getDataInicio()+ 
-                "','"+ novo.getDataFim()+ 
+                "','"+ novo.getDataFim()+
+                "',"+ novo.getTipo()+
+                "',"+ novo.getPeso()+
+                "',"+ novo.getVolume()+
+                "',"+ novo.getQuantidade()+
+                "',"+ novo.getDistancia()+
                 "',"+ novo.getIdCliente()+
                 ","+ novo.getIdFuncionario()+
-                ","+ novo.getIdVeiculo()+")");
+                ","+ novo.getIdVeiculo()+") RETURNING id");
+        if(rs.next()){
+            novo.setIdServico(rs.getInt(1));
+        }
         rs.close();
         stmt.close();
         c.close();  
@@ -103,6 +111,11 @@ public class ServicoBD implements InterfaceBD{
                 + "VALOR_CONTRATO="+ novo.getValorContrato() + ", "
                 + "DATA_INICIO="+ novo.getDataInicio() + ", "
                 + "DATA_FIM="+ novo.getDataFim() + ", "
+                + "TIPO="+ novo.getTipo() + ", "
+                + "PESO="+ novo.getPeso() + ", "
+                + "VOLUME="+ novo.getVolume() + ", "
+                + "QUANTIDADE="+ novo.getQuantidade() + ", "
+                + "DISTANCIA="+ novo.getDistancia() + ", "
                 + "ID_CLIENTE="+ novo.getIdCliente() + ", "
                 + "ID_FUNCIONARIO="+ novo.getIdFuncionario() + ", "
                 + "ID_VEICULO="+ novo.getIdVeiculo() + " "
