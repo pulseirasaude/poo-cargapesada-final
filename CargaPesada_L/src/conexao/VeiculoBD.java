@@ -24,11 +24,11 @@ public class VeiculoBD implements InterfaceBD{
         List<Veiculo> listVeiculos = new ArrayList<Veiculo>();
         Connection c;
         Statement stmt;
-        if (condicao.length() > 0){
+       /* if (condicao.length() > 0){
             
             condicao = "where nome ilike '%" + condicao + "%'";
             
-        }
+        }*/
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM VEICULO " + condicao);

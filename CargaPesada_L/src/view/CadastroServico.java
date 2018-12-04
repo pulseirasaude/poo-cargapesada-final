@@ -366,11 +366,11 @@ public class CadastroServico extends javax.swing.JFrame {
                 .addComponent(EnderecoOrigem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addComponent(endDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EnderecoDestino)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel20)
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -486,7 +486,9 @@ public class CadastroServico extends javax.swing.JFrame {
     }//GEN-LAST:event_voltarActionPerformed
 
     private void cadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cadastrarMouseClicked
+        
         // TODO add your handling code here:
+        
         dispose();
     }//GEN-LAST:event_cadastrarMouseClicked
 
@@ -525,7 +527,7 @@ public class CadastroServico extends javax.swing.JFrame {
             List<Veiculo> veiculoL = new ArrayList<Veiculo>();
         
              try {
-                 veiculoL = veiculo.select(nomeCliente.getText());
+                 veiculoL = veiculo.select("where nome ilike '%" + nomeCliente.getText() + "%'");
              } catch (SQLException ex) {
                  Logger.getLogger(CadastroServico.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -546,7 +548,7 @@ public class CadastroServico extends javax.swing.JFrame {
             List<Cliente> Clientes = new ArrayList<Cliente>();
             
              try {
-                 Clientes = cliente.select(nomeVeiculo.getText());
+                 Clientes = cliente.select("where nome ilike '%" + nomeVeiculo.getText() + "%'" );
              } catch (SQLException ex) {
                  Logger.getLogger(CadastroServico.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -576,7 +578,7 @@ public class CadastroServico extends javax.swing.JFrame {
             List<Endereco> endLista = new ArrayList<Endereco>();
             
              try {
-                 endLista = endO.select(endOrigem.getText());
+                 endLista = endO.select("where nome ilike '%" + endOrigem.getText() + "%'");
              } catch (SQLException ex) {
                  Logger.getLogger(CadastroServico.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -602,7 +604,7 @@ public class CadastroServico extends javax.swing.JFrame {
             List<Endereco> endLista = new ArrayList<Endereco>();
             
              try {
-                 endLista = endO.select(endOrigem.getText());
+                 endLista = endO.select("where nome ilike '%" + endOrigem.getText() + "%'");
              } catch (SQLException ex) {
                  Logger.getLogger(CadastroServico.class.getName()).log(Level.SEVERE, null, ex);
              }
@@ -610,9 +612,9 @@ public class CadastroServico extends javax.swing.JFrame {
             
             dialog.dadostabelE(endLista);
             dialog.setVisible(true);
-            System.out.print(dialog.getName());
+            System.out.print(dialog.getName()+ " " + serv.getIdDestino());
             endDestino.setText(dialog.getNome());
-            serv.setIdOrigem(dialog.getId());
+            serv.setIdDestino(dialog.getId());
         }
     }//GEN-LAST:event_endDestinoKeyPressed
 

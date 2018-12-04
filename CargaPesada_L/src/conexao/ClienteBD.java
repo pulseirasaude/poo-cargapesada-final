@@ -24,10 +24,10 @@ public class ClienteBD implements InterfaceBD{
         List<Cliente> listCliente = new ArrayList<Cliente>();
         Connection c;
         Statement stmt;
-        if (condicao.length() > 0){            
+        /*if (condicao.length() > 0){            
             condicao = "where nome ilike '%" + condicao + "%'";
             
-        }
+        }*/
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM CLIENTE " + condicao);

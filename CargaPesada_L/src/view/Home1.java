@@ -33,6 +33,7 @@ import modelo.Veiculo;
 public class Home1 extends javax.swing.JFrame {
     
     ArrayList clientes = null;
+    CadastroCliente cliente = new CadastroCliente();
     /**
      * Creates new form Home
      */
@@ -1010,7 +1011,9 @@ public class Home1 extends javax.swing.JFrame {
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
         // TODO add your handling code here:
         int linha = tabelaClientes.getSelectedRow();
-        this.clientes.get(linha);        
+        cliente.auxAlteracao((Cliente)this.clientes.get(linha));
+        
+        
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
     /**

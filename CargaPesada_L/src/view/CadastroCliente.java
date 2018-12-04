@@ -7,6 +7,7 @@ package view;
 
 import conexao.*;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -23,6 +24,14 @@ public class CadastroCliente extends javax.swing.JFrame {
      */
     public CadastroCliente() {
         initComponents();
+    }
+    
+    public void auxAlteracao(Cliente cliente){
+        nomeCliente.setText(cliente.getNome());
+        
+        EnderecoBD end = new EnderecoBD();
+        end.select("where id = "+endereOB.getId());
+        endereco.
     }
 
     /**
@@ -53,6 +62,7 @@ public class CadastroCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         telefone3 = new javax.swing.JTextField();
+        Alteracao = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -159,6 +169,18 @@ public class CadastroCliente extends javax.swing.JFrame {
             }
         });
 
+        Alteracao.setText("ALTERAR OS DADOS");
+        Alteracao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AlteracaoMouseClicked(evt);
+            }
+        });
+        Alteracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlteracaoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -181,7 +203,7 @@ public class CadastroCliente extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel19)
                                     .addComponent(telefone2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(52, 52, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cadastro1)
@@ -204,8 +226,10 @@ public class CadastroCliente extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(cadastro)
                                 .addGap(18, 18, 18)
-                                .addComponent(voltar)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(voltar)
+                                .addGap(18, 18, 18)
+                                .addComponent(Alteracao)))
+                        .addGap(0, 40, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +269,8 @@ public class CadastroCliente extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastro)
-                    .addComponent(voltar))
+                    .addComponent(voltar)
+                    .addComponent(Alteracao))
                 .addGap(26, 26, 26))
         );
 
@@ -354,6 +379,15 @@ public class CadastroCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_telefone3ActionPerformed
 
+    private void AlteracaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlteracaoMouseClicked
+        // TODO add your handling code here:
+            
+    }//GEN-LAST:event_AlteracaoMouseClicked
+
+    private void AlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlteracaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AlteracaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -391,6 +425,7 @@ public class CadastroCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Alteracao;
     private javax.swing.JButton cadastro;
     private javax.swing.JButton cadastro1;
     private javax.swing.JTextField email;

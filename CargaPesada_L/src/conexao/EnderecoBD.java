@@ -21,10 +21,10 @@ public class EnderecoBD implements InterfaceBD{
     @Override
     public ArrayList select(String condicao) throws SQLException {
         List<Endereco> listEndereco = new ArrayList<Endereco>();
-        if (condicao.length() > 0){            
+        /*if (condicao.length() > 0){            
             condicao = "where nome ilike '%" + condicao + "%'";
             
-        }
+        }*/
         Connection c;
         Statement stmt;
         c = ConexaoBD.getInstance();
