@@ -35,6 +35,11 @@ public class ServicoBD implements InterfaceBD{
             servico.setValorContrato(rs.getFloat("VALOR_CONTRATO"));
             servico.setDataInicio(rs.getNString("DATA_INICIO"));
             servico.setDataFim(rs.getNString("DATA_FIM"));
+            servico.setDistancia(rs.getNString("DISTANCIA"));
+            servico.setQuantidade(rs.getInt("QUANTIDADE"));
+            servico.setVolume(rs.getNString("VOLUME"));
+            servico.setTipo(rs.getNString("TIPO"));
+            servico.setPeso(rs.getFloat("PESO"));
             servico.setIdCliente(rs.getInt("ID_CLIENTE"));
             servico.setIdFuncionario(rs.getInt(rs.getInt("ID_FUNCIONARIO")));
             servico.setIdVeiculo(rs.getInt("ID_VEICULO"));

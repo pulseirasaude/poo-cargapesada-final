@@ -187,6 +187,11 @@ public class CriacaoBanco
                             "  VALOR_CONTRATO FLOAT,\n" +
                             "  DATA_INICIO DATE,\n" +
                             "  DATA_FIM DATE,\n" +
+                            "  TIPO VARCHAR(45),\n" +
+                            "  PESO FLOAT,\n" +
+                            "  VOLUME VARCHAR(45),\n" +
+                            "  QUANTIDADE INT,\n" +
+                            "  DISTANCIA VARCHAR(45),\n" +                    
                             "  ID_CLIENTE INT NOT NULL,\n" +
                             "  ID_FUNCIONARIO INT NOT NULL,\n" +
                             "  ID_VEICULO INT NOT NULL,\n" +                           
