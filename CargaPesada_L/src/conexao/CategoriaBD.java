@@ -32,7 +32,7 @@ public class CategoriaBD implements InterfaceBD{
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
 
             Categoria categoria = new Categoria();
-            categoria.setIdCategoria(rs.getInt("id"));
+            categoria.setIdCategoria(rs.getInt("ID"));
             categoria.setNome(rs.getString("NOME"));
 
 

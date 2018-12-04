@@ -31,11 +31,10 @@ public class ContatoBD implements InterfaceBD{
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
             Contato contato = new Contato();
-            contato.setId_contato(rs.getInt("id"));
+            contato.setId_contato(rs.getInt("ID"));
             contato.setTelefone1(rs.getString("TELEFONE_01"));
             contato.setTelefone2(rs.getString("TELEFONE_02"));
             contato.setTelefone3(rs.getString("TELEFONE_03"));
-
             contato.setEmail(rs.getString("EMAIL"));
 
 

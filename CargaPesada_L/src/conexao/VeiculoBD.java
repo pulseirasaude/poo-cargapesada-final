@@ -34,13 +34,17 @@ public class VeiculoBD implements InterfaceBD{
         ResultSet rs = stmt.executeQuery("SELECT * FROM VEICULO " + condicao);
         while (rs.next()) {
             Veiculo veiculo = new Veiculo();
-            veiculo.setId(rs.getInt("id"));
+            veiculo.setId(rs.getInt("ID"));
             veiculo.setNome(rs.getString("NOME"));            
             veiculo.setPlaca(rs.getString("PLACA"));
             veiculo.setChassi(rs.getString("CHASSI"));
-            veiculo.setStatus(rs.getString("ID_STATUS"));
-            veiculo.setTipoCombustivel(rs.getString("ID_COMBUSTIVEL"));
+            veiculo.setStatus(rs.getString("STATUS"));
+            veiculo.setTipoCombustivel(rs.getString("COMBUSTIVEL"));
             veiculo.setIdCategoria(rs.getInt("ID_CATEGORIA"));
+            veiculo.setIdMotorista(rs.getInt("ID_MOTORISTA"));
+            veiculo.setIdModelo(rs.getInt("ID_MODELO"));
+            veiculo.setIdSeguro(rs.getInt("ID_SEGURO"));
+            veiculo.setIdFinanciamento(rs.getInt("ID_FINANCIAMENTO"));
             
 
             //Classes que compõe um motorista

@@ -25,18 +25,20 @@ public class FuncionarioBD implements InterfaceBD{
         Statement stmt;
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM VEICULO" + condicao + ";");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM FUNCIONARIO" + condicao + ";");
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
 
             Funcionario funcionario = new Funcionario();
-            funcionario.setIdFuncionario(rs.getInt("id"));
+            funcionario.setIdFuncionario(rs.getInt("ID"));
             funcionario.setNome(rs.getString("NOME"));
-            funcionario.setSalario(rs.getFloat("SALARIO"));
-            funcionario.setCargo(rs.getString("CARGO"));
             funcionario.setCpf(rs.getString("CPF"));
-
+            funcionario.setCargo(rs.getNString("CARGO"));
+            funcionario.setSalario(rs.getFloat("SALARIO"));
+            funcionario.setSexo(rs.getNString("SEXO"));
+            funcionario.setDataCadastro(rs.getNString("DATA_CADASTRO"));
+            funcionario.setDataNascimento(rs.getNString("DATA_NASCIMENTO"));
 
             //Classes que compõe um funcionario
 

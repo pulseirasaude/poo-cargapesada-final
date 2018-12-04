@@ -30,15 +30,14 @@ public class ServicoBD implements InterfaceBD{
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
 
             Servico servico = new Servico();
-            servico.setDataFim(rs.getNString("DATA_FIM"));
-            servico.setDataInicio(rs.getNString("DATA_INICIO"));
-            servico.setIdDestino(rs.getInt("ID_ENDERECO_DESTINO"));
-            servico.setIdOrigem(rs.getInt("ID_ENDERECO_ORIGEM"));
-            servico.setIdFuncionario(rs.getInt(rs.getInt("ID_FUNCIONARIO")));
             servico.setIdServico(rs.getInt("ID"));
-            servico.setIdVeiculo(rs.getInt("ID_VEICULO"));
             servico.setStatus(rs.getNString("STATUS"));
             servico.setValorContrato(rs.getFloat("VALOR_CONTRATO"));
+            servico.setDataInicio(rs.getNString("DATA_INICIO"));
+            servico.setDataFim(rs.getNString("DATA_FIM"));
+            servico.setIdCliente(rs.getInt("ID_CLIENTE"));
+            servico.setIdFuncionario(rs.getInt(rs.getInt("ID_FUNCIONARIO")));
+            servico.setIdVeiculo(rs.getInt("ID_VEICULO"));
             //Classes que compõe um funcionario
 
             //funcionario.setContato(rs.getString("CONTATO"));
@@ -62,16 +61,14 @@ public class ServicoBD implements InterfaceBD{
         ResultSet rs;
         stmt = c.createStatement();
         rs = stmt.executeQuery("INSERT INTO SERVICO(STATUS, VALOR_CONTRATO, DATA_INICIO, DATA_FIM, "
-                + "ID_CLIENTE, ID_FUNCIONARIO, ID_VEICULO, ID_ENDERECO_DESTINO, ID_ENDERECO_ORIGEM) values("
+                + "ID_CLIENTE, ID_FUNCIONARIO, ID_VEICULO) values("
                 +"'"+ novo.getStatus()+
                 "',"+ novo.getValorContrato()+ 
                 ",'"+ novo.getDataInicio()+ 
                 "','"+ novo.getDataFim()+ 
                 "',"+ novo.getIdCliente()+
                 ","+ novo.getIdFuncionario()+
-                ","+ novo.getIdVeiculo()+
-                ","+ novo.getIdDestino()+
-                ","+ novo.getIdOrigem() +")");
+                ","+ novo.getIdVeiculo()+")");
         rs.close();
         stmt.close();
         c.close();  
@@ -103,9 +100,7 @@ public class ServicoBD implements InterfaceBD{
                 + "DATA_FIM="+ novo.getDataFim() + ", "
                 + "ID_CLIENTE="+ novo.getIdCliente() + ", "
                 + "ID_FUNCIONARIO="+ novo.getIdFuncionario() + ", "
-                + "ID_VEICULO="+ novo.getIdVeiculo() + ", "
-                + "ID_ENDERECO_DESTINO="+ novo.getIdDestino() + ", "
-                + "ID_ENDERECO_ORIGEM="+ novo.getIdOrigem() + " "
+                + "ID_VEICULO="+ novo.getIdVeiculo() + " "
                 + "WHERE id ="+ novo.getIdServico() + ";";
         stmt.executeUpdate(sql);
         stmt.close();

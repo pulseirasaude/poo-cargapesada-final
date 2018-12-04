@@ -35,8 +35,10 @@ public class ClienteBD implements InterfaceBD{
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
             Cliente cliente = new Cliente();
-            cliente.setId(rs.getInt("id"));
-            cliente.setNome(rs.getString("nome"));
+            cliente.setId(rs.getInt("ID"));
+            cliente.setNome(rs.getString("NOME"));
+            cliente.setTipoCliente(rs.getNString("TIPO_CLIENTE"));
+            // FALTA DATA DE CADASTRO
             cliente.setCnpj(rs.getString("CNPJ"));
             cliente.setCpf(rs.getString("CPF"));
 

@@ -29,7 +29,7 @@ public class ModeloBD implements InterfaceBD{
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
             Modelo modelo = new Modelo();
-            modelo.setIdModelo(rs.getInt("id"));
+            modelo.setIdModelo(rs.getInt("ID"));
             modelo.setNome(rs.getString("MODELO"));
             modelo.setMarca(rs.getString("MARCA"));
             modelo.setAno(rs.getString("ANO"));

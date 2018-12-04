@@ -24,12 +24,12 @@ public class FinanciamentoBD implements InterfaceBD{
         Statement stmt;
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM ENDERECO;");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM FINANCIAMENTO;");
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
             Financiamento financiamento = new Financiamento();
-            financiamento.setIdFinanciamento(rs.getInt("id"));
+            financiamento.setIdFinanciamento(rs.getInt("ID"));
             financiamento.setValorParcela(rs.getFloat("VALOR_PARCELA"));
             financiamento.setParcelasTotais(rs.getInt("PARCELAS_TOTAIS"));
             financiamento.setParcelasPagas(rs.getInt("PARCELAS_PAGAS"));
