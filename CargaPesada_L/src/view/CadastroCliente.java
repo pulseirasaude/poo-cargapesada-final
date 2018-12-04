@@ -26,10 +26,16 @@ public class CadastroCliente extends javax.swing.JFrame {
         initComponents();
     }
     
+    public Endereco endCli(Cliente cli){
+        EnderecoBD end = new EnderecoBD();
+        end.select("where ");
+        return 
+        
+    }
     public void auxAlteracao(Cliente cliente){
         nomeCliente.setText(cliente.getNome());
         
-        EnderecoBD end = new EnderecoBD();
+        
         end.select("where id = "+endereOB.getId());
         endereco.
     }

@@ -26,7 +26,7 @@ public class ContatoBD implements InterfaceBD{
         Statement stmt;
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM CONTATO "+ condicao);
+        ResultSet rs = stmt.executeQuery("SELECT * FROM CONTATO;");
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
