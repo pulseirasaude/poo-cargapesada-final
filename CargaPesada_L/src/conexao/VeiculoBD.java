@@ -38,8 +38,8 @@ public class VeiculoBD implements InterfaceBD{
             veiculo.setNome(rs.getString("NOME"));            
             veiculo.setPlaca(rs.getString("PLACA"));
             veiculo.setChassi(rs.getString("CHASSI"));
-            veiculo.setStatus(rs.getString("ID_STATUS"));
-            veiculo.setTipoCombustivel(rs.getString("ID_COMBUSTIVEL"));
+            veiculo.setStatus(rs.getString("STATUS"));
+            veiculo.setTipoCombustivel(rs.getString("COMBUSTIVEL"));
             veiculo.setIdCategoria(rs.getInt("ID_CATEGORIA"));
             
 

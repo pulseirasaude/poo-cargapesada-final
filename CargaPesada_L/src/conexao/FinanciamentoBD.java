@@ -24,7 +24,7 @@ public class FinanciamentoBD implements InterfaceBD{
         Statement stmt;
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM ENDERECO;");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM FINANCIAMENTO;");
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
