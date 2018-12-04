@@ -31,7 +31,8 @@ import modelo.Veiculo;
  * @author 20162bsi0325
  */
 public class Home1 extends javax.swing.JFrame {
-
+    
+    ArrayList clientes = null;
     /**
      * Creates new form Home
      */
@@ -680,6 +681,11 @@ public class Home1 extends javax.swing.JFrame {
                 "n°", "Nome", "CPF", "CNPJ", "Contato", "Endereço"
             }
         ));
+        tabelaClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaClientesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabelaClientes);
 
         pesquisarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -932,7 +938,7 @@ public class Home1 extends javax.swing.JFrame {
     private void clientesMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientesMenuMouseClicked
         // TODO add your handling code here:
         ClienteBD clientes_conn = new ClienteBD();
-        ArrayList clientes = null;
+        
         
         try {
             clientes = clientes_conn.select("");
@@ -1000,6 +1006,12 @@ public class Home1 extends javax.swing.JFrame {
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
  
     }//GEN-LAST:event_tabelaMouseClicked
+
+    private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
+        // TODO add your handling code here:
+        int linha = tabelaClientes.getSelectedRow();
+        this.clientes.get(linha);        
+    }//GEN-LAST:event_tabelaClientesMouseClicked
 
     /**
      * @param args the command line arguments
