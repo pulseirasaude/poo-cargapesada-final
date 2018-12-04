@@ -21,6 +21,53 @@ public class Servico
     private int idCliente;
     private int idFuncionario;
     private int idVeiculo;
+    //atributos relacionados a carga.
+    private String tipo;
+    private double peso;
+    private String volume;
+    private int quantidade;
+    private String distancia;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getVolume() {
+        return volume;
+    }
+
+    public void setVolume(String volume) {
+        this.volume = volume;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getDistancia() {
+        return distancia;
+    }
+
+    public void setDistancia(String distancia) {
+        this.distancia = distancia;
+    }
+    
 
     public int getIdServico() {
         return this.idServico;
