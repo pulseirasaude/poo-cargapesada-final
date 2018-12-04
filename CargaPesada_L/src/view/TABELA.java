@@ -12,6 +12,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.Endereco;
+import modelo.Funcionario;
 import modelo.Veiculo;
 
 /**
@@ -30,6 +31,43 @@ public class TABELA extends javax.swing.JFrame {
 
     public String getNome() {
         return nome;
+    }
+    
+    public void dadosTabelaFuncionario(List<Funcionario> funcionarios, JTable tabela){
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        if (tabela == null)
+            tabela = jTable1;
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("Nome");
+        modelo.addColumn("CPF");
+        modelo.addColumn("Cargo");
+        modelo.addColumn("Salario");
+        modelo.addColumn("Sexo");
+        modelo.addColumn("Data Cadastro");
+        modelo.addColumn("Data Nascimento");
+                
+        Funcionario gen ;
+        if(funcionarios.isEmpty()){
+            modelo.addRow(new String[]{"NADA","NADA"});
+            
+        }else{
+            for(int i = 0; i < funcionarios.size(); i++){
+                gen = funcionarios.get(i);
+                modelo. addRow(new String[]{Integer.toString(gen.getIdFuncionario()), 
+                                gen.getNome(),
+                                gen.getCpf(),
+                                gen.getCargo(),
+                                Float.toString(gen.getSalario()),
+                                gen.getSexo(),
+                                gen.getDataCadastro(),
+                                gen.getDataNascimento(),
+                                });
+            }
+        }
+        
+        tabela.setModel(modelo);
     }
     
     public void dadostabelV(List<Veiculo> veiculo, JTable tabela){

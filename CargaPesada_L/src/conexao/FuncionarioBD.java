@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,12 +21,12 @@ public class FuncionarioBD implements InterfaceBD{
     
     @Override
     public ArrayList select(String condicao) throws SQLException {
-        ArrayList listFuncionarios = new ArrayList();
+        List<Funcionario> listFuncionarios = new ArrayList<Funcionario>();
         Connection c;
         Statement stmt;
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM FUNCIONARIO" + condicao + ";");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM FUNCIONARIO " + condicao);
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
@@ -51,7 +52,7 @@ public class FuncionarioBD implements InterfaceBD{
         stmt.close();
         c.close();
 
-        return listFuncionarios;
+        return (ArrayList) listFuncionarios;
     }
 
     @Override

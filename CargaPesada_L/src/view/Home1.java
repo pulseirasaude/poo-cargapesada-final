@@ -24,6 +24,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.Endereco;
+import modelo.Funcionario;
 import modelo.Veiculo;
 
 /**
@@ -933,6 +934,18 @@ public class Home1 extends javax.swing.JFrame {
 
     private void funcionariosMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_funcionariosMenuMouseClicked
         // TODO add your handling code here:
+        
+        FuncionarioBD funBD = new FuncionarioBD();
+        ArrayList funcionarios = null;
+        try {
+            funcionarios = funBD.select("");
+        } catch (SQLException ex) {
+            Logger.getLogger(Home1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Veiculos.setLayout(new BorderLayout());
+        TABELA aux = new TABELA();
+        aux.dadosTabelaFuncionario(funcionarios,tabelaFuncionarios);   
+        
         setContentPane(Funcionarios); 
     }//GEN-LAST:event_funcionariosMenuMouseClicked
 
