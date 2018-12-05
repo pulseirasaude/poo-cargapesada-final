@@ -24,7 +24,7 @@ public class ServicoBD implements InterfaceBD{
         Statement stmt;
         c = ConexaoBD.getInstance();
         stmt = c.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM SERVICO;");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM SERVICO " + condicao +";");
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
@@ -71,11 +71,11 @@ public class ServicoBD implements InterfaceBD{
                 "',"+ novo.getValorContrato()+ 
                 ",'"+ novo.getDataInicio()+ 
                 "','"+ novo.getDataFim()+
-                "',"+ novo.getTipo()+
+                "','"+ novo.getTipo()+
                 "',"+ novo.getPeso()+
-                "',"+ novo.getVolume()+
+                ",'"+ novo.getVolume()+
                 "',"+ novo.getQuantidade()+
-                "',"+ novo.getDistancia()+
+                ",'"+ novo.getDistancia()+
                 "',"+ novo.getIdCliente()+
                 ","+ novo.getIdFuncionario()+
                 ","+ novo.getIdVeiculo()+") RETURNING id");

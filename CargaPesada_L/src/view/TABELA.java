@@ -14,6 +14,7 @@ import modelo.Cliente;
 import modelo.Endereco;
 import modelo.Funcionario;
 import modelo.Motorista;
+import modelo.Servico;
 import modelo.Veiculo;
 
 /**
@@ -33,6 +34,49 @@ public class TABELA extends javax.swing.JFrame {
     public String getNome() {
         return nome;
     }
+    
+    public void dadosTabelaServico(List<Servico> servicos, JTable tabela) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        if (tabela == null)
+            tabela = jTable1;
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("Valor Contrato");
+        modelo.addColumn("Data Inicio");
+        modelo.addColumn("Data Fim");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Peso");
+        modelo.addColumn("Volume");
+        modelo.addColumn("Quantidade");
+        modelo.addColumn("Distancia");
+        modelo.addColumn("Status");        
+
+                
+        Servico gen ;
+        if(servicos.isEmpty()){
+            modelo.addRow(new String[]{"NADA","NADA"});
+            
+        }else{
+            for(int i = 0; i < servicos.size(); i++){
+                gen = servicos.get(i);
+                modelo. addRow(new String[]{
+                                Float.toString(gen.getValorContrato()),
+                                gen.getDataInicio(),
+                                gen.getDataFim(),
+                                gen.getTipo(),
+                                Double.toString(gen.getPeso()),
+                                gen.getVolume(),
+                                Integer.toString(gen.getQuantidade()),
+                                gen.getDistancia(),
+                                gen.getStatus()
+                                });
+            }
+        }
+        
+        tabela.setModel(modelo);
+    }
+    
     
     public void dadosTabelaMotoristas(List<Motorista> motoristas, JTable tabela) {
         DefaultTableModel modelo = new DefaultTableModel();

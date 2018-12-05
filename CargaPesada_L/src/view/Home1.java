@@ -843,7 +843,18 @@ public class Home1 extends javax.swing.JFrame {
 
     private void servicosMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_servicosMenuMouseClicked
         setContentPane(Servico); 
-        // TODO add your handling code here:
+         // TODO add your handling code here:
+                 
+        ServicoBD servBD = new ServicoBD();
+        ArrayList servicos = null;
+        try {
+            servicos = servBD.select("");
+        } catch (SQLException ex) {
+            Logger.getLogger(Home1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Veiculos.setLayout(new BorderLayout());
+        TABELA aux = new TABELA();
+        aux.dadosTabelaServico(servicos,tabelaServico); 
     }//GEN-LAST:event_servicosMenuMouseClicked
 
     private void homeMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMenuMouseClicked
