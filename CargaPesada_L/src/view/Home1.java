@@ -946,6 +946,16 @@ public class Home1 extends javax.swing.JFrame {
         TABELA aux = new TABELA();
         aux.dadosTabelaFuncionario(funcionarios,tabelaFuncionarios);   
         
+        MotoristaBD motBD = new MotoristaBD();
+        ArrayList motoristas = null;
+        try {
+            motoristas = motBD.select("");
+        } catch (SQLException ex) {
+            Logger.getLogger(Home1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Veiculos.setLayout(new BorderLayout());
+        aux.dadosTabelaMotoristas(motoristas,tabelaMotorista);  
+        
         setContentPane(Funcionarios); 
     }//GEN-LAST:event_funcionariosMenuMouseClicked
 

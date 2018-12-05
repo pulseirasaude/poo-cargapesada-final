@@ -29,13 +29,13 @@ public class CriacaoBanco
                             "\n" +
                             "DROP TABLE IF EXISTS CONTATO_FUNCIONARIO;\n" +
                             "\n" +
-                            "DROP TABLE IF EXISTS FINANCIAMENTO;\n" +
+                            "DROP TABLE IF EXISTS FINANCIAMENTO CASCADE;\n" +
                             "\n" +
-                            "DROP TABLE IF EXISTS SERVICO;\n" +
+                            "DROP TABLE IF EXISTS SERVICO CASCADE;\n" +
                             "\n" +
                             "DROP TABLE IF EXISTS ENDERECO_SERVICO;\n" +
                             "\n" +
-                            "DROP TABLE IF EXISTS SEGURO;\n" +
+                            "DROP TABLE IF EXISTS SEGURO CASCADE;\n" +
                             "\n" +
                             "DROP TABLE IF EXISTS VEICULO ;\n" +
                             "\n" +

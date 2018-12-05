@@ -13,6 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Cliente;
 import modelo.Endereco;
 import modelo.Funcionario;
+import modelo.Motorista;
 import modelo.Veiculo;
 
 /**
@@ -33,6 +34,37 @@ public class TABELA extends javax.swing.JFrame {
         return nome;
     }
     
+    public void dadosTabelaMotoristas(List<Motorista> motoristas, JTable tabela) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        
+        if (tabela == null)
+            tabela = jTable1;
+        
+        modelo.addColumn("ID");
+        modelo.addColumn("CNH");
+        modelo.addColumn("Data Vencimento");
+        modelo.addColumn("Categoria CNH");
+        modelo.addColumn("ID Funcionario");
+
+                
+        Motorista gen ;
+        if(motoristas.isEmpty()){
+            modelo.addRow(new String[]{"NADA","NADA"});
+            
+        }else{
+            for(int i = 0; i < motoristas.size(); i++){
+                gen = motoristas.get(i);
+                modelo. addRow(new String[]{Integer.toString(gen.getIdMotorista()), 
+                                gen.getCnh(),
+                                gen.getDataVencimento(),
+                                gen.getCategoriaCnh(),
+                                Integer.toString(gen.getIdFuncionario())
+                                });
+            }
+        }
+        
+        tabela.setModel(modelo);
+    }
     public void dadosTabelaFuncionario(List<Funcionario> funcionarios, JTable tabela){
         DefaultTableModel modelo = new DefaultTableModel();
         
@@ -263,6 +295,8 @@ public class TABELA extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+
+
 
     
 

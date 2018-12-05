@@ -30,16 +30,15 @@ public class FuncionarioBD implements InterfaceBD{
         while (rs.next()) {
 
             //OS DOIS CAMPOS PREENCHIDOS NAO ACEITAM NULL, PROCURAR SOLUÇÃO
-
             Funcionario funcionario = new Funcionario();
             funcionario.setIdFuncionario(rs.getInt("ID"));
             funcionario.setNome(rs.getString("NOME"));
             funcionario.setCpf(rs.getString("CPF"));
-            funcionario.setCargo(rs.getNString("CARGO"));
+            funcionario.setCargo(rs.getString("CARGO"));
             funcionario.setSalario(rs.getFloat("SALARIO"));
-            funcionario.setSexo(rs.getNString("SEXO"));
-            funcionario.setDataCadastro(rs.getNString("DATA_CADASTRO"));
-            funcionario.setDataNascimento(rs.getNString("DATA_NASCIMENTO"));
+            funcionario.setSexo(rs.getString("SEXO"));
+            funcionario.setDataCadastro(rs.getString("DATA_CADASTRO"));
+            funcionario.setDataNascimento(rs.getString("DATA_NASCIMENTO"));
 
             //Classes que compõe um funcionario
 

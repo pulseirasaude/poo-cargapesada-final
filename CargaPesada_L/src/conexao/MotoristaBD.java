@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import modelo.Motorista;
 /**
  *
@@ -20,7 +21,7 @@ public class MotoristaBD implements InterfaceBD{
     @Override
     public ArrayList select(String condicao) throws SQLException {
         
-        ArrayList listMotorista = new ArrayList();
+        List<Motorista> listMotorista = new ArrayList<Motorista>();
         Connection c;
         Statement stmt;
         c = ConexaoBD.getInstance();
@@ -32,10 +33,9 @@ public class MotoristaBD implements InterfaceBD{
 
             Motorista motorista = new Motorista();
             motorista.setIdMotorista(rs.getInt("ID"));
-            motorista.setCategoriaCnh(rs.getNString("CATEGORIA_CNH"));
+            motorista.setCategoriaCnh(rs.getString("CATEGORIA_CNH"));
             motorista.setCnh(rs.getString("CNH"));
-            motorista.setCpf(rs.getString("CPF"));
-            motorista.setDataVencimento(rs.getNString("DATA_VENCIMENTO"));
+            motorista.setDataVencimento(rs.getString("DATA_VENCIMENTO"));
             motorista.setIdFuncionario(rs.getInt("ID_FUNCIONARIO"));
 
 
@@ -50,7 +50,7 @@ public class MotoristaBD implements InterfaceBD{
         stmt.close();
         c.close();
 
-        return listMotorista;    
+        return (ArrayList) listMotorista;    
     }
 
     @Override
